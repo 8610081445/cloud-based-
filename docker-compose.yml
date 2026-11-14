@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  omnisales-bi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: omnisales-intelligence:latest
+    container_name: omnisales_bi_app
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - STREAMLIT_SERVER_HEADLESS=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
