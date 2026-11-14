@@ -150,7 +150,7 @@ pytest tests/ -v --cov=src --cov-report=term-missing
 ```bash
 streamlit run src/dashboard/app.py
 ```
-Open your browser to `http://localhost:8501`.
+Open your browser to 
 
 ---
 
